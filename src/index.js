@@ -6,4 +6,3 @@ const question = () => {
   console.log(str);
 };
 export default question;
-

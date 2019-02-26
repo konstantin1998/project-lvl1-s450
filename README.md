@@ -3,3 +3,4 @@
 [![Build Status](https://travis-ci.org/konstantin1998/project-lvl1-s450.svg?branch=master)](https://travis-ci.org/konstantin1998/project-lvl1-s450)
 [![asciicast](https://asciinema.org/a/r5QMbYGmb6FxTfFifsKagcAra.svg)](https://asciinema.org/a/r5QMbYGmb6FxTfFifsKagcAra)
 [![asciicast](https://asciinema.org/a/5sIhu7V4hnz0XTNgcE2l9aRs4.svg)](https://asciinema.org/a/5sIhu7V4hnz0XTNgcE2l9aRs4)
+[![asciicast](https://asciinema.org/a/4WskM2MRa6PwrZTzw2QjdEImT.svg)](https://asciinema.org/a/4WskM2MRa6PwrZTzw2QjdEImT)

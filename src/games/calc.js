@@ -1,14 +1,13 @@
-import readlineSync from 'readline-sync';
-import { cons, car, cdr } from 'hexlet-pairs';
+
+import { cons } from 'hexlet-pairs';
 import {
-  greeting, myRandom, answerCheck, congratulate,
+  myRandom, engine,
 } from './utils';
 
 const times = 3;
-const value = (pair) => {
-  const arg1 = car(cdr(pair));
-  const arg2 = cdr(cdr(pair));
-  const num = car(pair);
+const expression = () => {
+  const [arg1, arg2] = [myRandom(1, 20), myRandom(1, 20)];
+  const num = myRandom(0, 3);
   let result = 0;
   let operation = ' ';
   if (num === 0) {
@@ -22,27 +21,12 @@ const value = (pair) => {
     operation = '-';
   }
   const corrAnswer = String(result);
-  const expression = `${arg1} ${operation} ${arg2}`;
-  return cons(corrAnswer, expression);
+  const question = `Question: ${arg1} ${operation} ${arg2}`;
+  return cons(question, corrAnswer);
 };
 const brainCalc = () => {
-  const userName = greeting('What is the result of the expression?');
-  for (let i = 0; i < times; i += 1) {
-    const [arg1, arg2] = [myRandom(1, 20), myRandom(1, 20)];
-    const randomNum = myRandom(0, 3);
-    const argPair = cons(arg1, arg2);
-    const pair = cons(randomNum, argPair);
-    const corrAnswer = car(value(pair));
-    const expression = cdr(value(pair));
-    console.log(`Question: ${expression}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (answerCheck(answer, corrAnswer, userName)) {
-      return;
-    }
-  }
-
-
-  congratulate(userName);
+  const description = 'What is the result of the expression?';
+  engine(expression, description, times);
 };
 
 export default brainCalc;

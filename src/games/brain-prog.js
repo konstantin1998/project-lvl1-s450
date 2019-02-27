@@ -1,18 +1,19 @@
-import readlineSync from 'readline-sync';
+
+import { cons } from 'hexlet-pairs';
 import {
-  greeting, myRandom, answerCheck, congratulate,
+  myRandom, engine,
 } from './utils';
 
-const times = 10;
-const progression = () => {
-  const userName = greeting('What number is missing in the progression?');
+const times = 1;
+const sequence = () => {
+  const quantity = 10;
   const numbers = [];
   const startNum = 5;
   const step = 2;
   const missingIndex = myRandom(0, 9);
   const trueAnswer = String(startNum + step * missingIndex);
   let questionString = '';
-  for (let i = 0; i < times; i += 1) {
+  for (let i = 0; i < quantity; i += 1) {
     if (i !== missingIndex) {
       numbers[i] = startNum + step * i;
       questionString += `${String(numbers[i])} `;
@@ -20,10 +21,10 @@ const progression = () => {
       questionString += '.. ';
     }
   }
-  console.log(`Question: ${questionString}`);
-  const answer = readlineSync.question('Your answer: ');
-  if (answerCheck(answer, trueAnswer, userName) === 0) {
-    congratulate(userName);
-  }
+  return cons(`Question: ${questionString}`, trueAnswer);
+};
+const progression = () => {
+  const description = 'What number is missing in the progression?';
+  engine(sequence, description, times);
 };
 export default progression;

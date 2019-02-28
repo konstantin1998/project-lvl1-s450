@@ -1,30 +1,28 @@
-
 import { cons } from 'hexlet-pairs';
-import {
-  myRandom, engine,
-} from './utils';
+import { myRandom } from '../gameFunc/utils';
+import engine from '../gameFunc/engineFile';
 
-const times = 1;
+const quantity = 10;
 const sequence = () => {
-  const quantity = 10;
   const numbers = [];
-  const startNum = 5;
-  const step = 2;
-  const missingIndex = myRandom(0, 9);
-  const trueAnswer = String(startNum + step * missingIndex);
+  const startNum = myRandom(0, 10);
+  const step = myRandom(1, 6);
+  const hiddenElementIndex = myRandom(0, quantity - 1);
+  const trueAnswer = String(startNum + step * hiddenElementIndex);
   let questionString = '';
   for (let i = 0; i < quantity; i += 1) {
-    if (i !== missingIndex) {
+    if (i !== hiddenElementIndex) {
       numbers[i] = startNum + step * i;
       questionString += `${String(numbers[i])} `;
     } else {
       questionString += '.. ';
     }
   }
-  return cons(`Question: ${questionString}`, trueAnswer);
+  questionString = questionString.trim();
+  return cons(`${questionString}`, trueAnswer);
 };
 const progression = () => {
   const description = 'What number is missing in the progression?';
-  engine(sequence, description, times);
+  engine(sequence, description);
 };
 export default progression;

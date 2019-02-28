@@ -1,14 +1,10 @@
+import { cons } from 'hexlet-pairs';
+import { myRandom } from '../gameFunc/utils';
+import engine from '../gameFunc/engineFile';
 
-import {
-  cons,
-} from 'hexlet-pairs';
-import {
-  myRandom, engine,
-} from './utils';
-
-const gcdCount = () => {
-  const [num1, num2] = [myRandom(1, 100), myRandom(1, 100)];
-  const [min, max] = [Math.min(num1, num2), Math.max(num1, num2)];
+const gcdCount = (arg1, arg2) => {
+  const min = Math.min(arg1, arg2);
+  const max = Math.max(arg1, arg2);
   let result = 0;
   if ((max % min === 0) || min === 1) {
     result = min;
@@ -18,13 +14,18 @@ const gcdCount = () => {
       result = i;
     }
   }
-  const question = `Question: ${num1} ${num2}`;
+  return result;
+};
+const questionFunc = () => {
+  const [num1, num2] = [myRandom(1, 100), myRandom(1, 100)];
+  const result = gcdCount(num1, num2);
+  const question = `${num1} ${num2}`;
   const pair = cons(question, String(result));
   return pair;
 };
-const times = 3;
+
 const gcd = () => {
   const description = 'Find the greatest common divisor of given numbers.';
-  engine(gcdCount, description, times);
+  engine(questionFunc, description);
 };
 export default gcd;

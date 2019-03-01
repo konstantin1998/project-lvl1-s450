@@ -1,9 +1,9 @@
 import { cons } from 'hexlet-pairs';
 import myRandom from '../utils';
-import engine from '../engineFile';
+import engine from '../engine';
 
 const quantity = 10;
-const sequence = () => {
+const questionFunc = () => {
   const numbers = [];
   const startNum = myRandom(0, 10);
   const step = myRandom(1, 6);
@@ -21,8 +21,7 @@ const sequence = () => {
   questionString = questionString.trim();
   return cons(`${questionString}`, trueAnswer);
 };
+
 const description = 'What number is missing in the progression?';
-const progression = () => {
-  engine(sequence, description);
-};
-export default progression;
+
+export default () => engine(questionFunc, description);

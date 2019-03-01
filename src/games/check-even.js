@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import myRandom from '../utils';
-import engine from '../engineFile';
+import engine from '../engine';
 
 const isEven = num => ((num % 2) === 0);
 const questionFunc = () => {
@@ -9,8 +9,5 @@ const questionFunc = () => {
   return cons(String(randomNum), trueAnswer);
 };
 const description = 'Answer "yes" if number even otherwise answer "no".';
-const even = () => {
-  engine(questionFunc, description);
-};
 
-export default even;
+export default () => engine(questionFunc, description);

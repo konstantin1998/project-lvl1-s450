@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import myRandom from '../utils';
-import engine from '../engineFile';
+import engine from '../engine';
 
 const gcdCount = (arg1, arg2) => {
   const min = Math.min(arg1, arg2);
@@ -16,16 +16,16 @@ const gcdCount = (arg1, arg2) => {
   }
   return result;
 };
+
 const questionFunc = () => {
   const [num1, num2] = [myRandom(1, 100), myRandom(1, 100)];
-  const result = gcdCount(num1, num2);
+  const gcd = gcdCount(num1, num2);
   const question = `${num1} ${num2}`;
-  const pair = cons(question, String(result));
+  const trueAnswer = String(gcd);
+  const pair = cons(question, trueAnswer);
   return pair;
 };
 
 const description = 'Find the greatest common divisor of given numbers.';
-const gcd = () => {
-  engine(questionFunc, description);
-};
-export default gcd;
+
+export default () => engine(questionFunc, description);

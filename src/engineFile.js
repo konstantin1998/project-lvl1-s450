@@ -1,9 +1,7 @@
 import readlineSync from 'readline-sync';
-import {
-  car, cdr,
-} from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 
-export const greeting = (message) => {
+const greeting = (message) => {
   console.log('Welcome to the Brain Games!');
   console.log(message);
   const userName = readlineSync.question('May I have your name? ');
@@ -11,28 +9,16 @@ export const greeting = (message) => {
   console.log(hello);
   return userName;
 };
-export const myRandom = (min, max) => Math.floor(Math.random() * max) + min;
-export const answerCheck = (answer, trueAnswer, userName) => {
-  if (answer === trueAnswer) {
-    const word = 'Correct!';
-    console.log(word);
-    return false;
-  }
-  const message = `${answer} is wrong answer ;(. Correct answer was ${trueAnswer}`;
-  const str = `Let's try again, ${userName}!`;
-  console.log(message);
-  console.log(str);
-  return true;
-};
-export const congratulate = (userName) => {
+const congratulate = (userName) => {
   const words = `Congratulations, ${userName}!`;
   console.log(words);
 };
-export const engine = (gameFunc, description, times) => {
+const engine = (gameFunc, description) => {
+  const times = 3;
   const userName = greeting(description);
   for (let i = 0; i < times; i += 1) {
     const pair = gameFunc();
-    const question = car(pair);
+    const question = `Question: ${car(pair)}`;
     const trueAnswer = cdr(pair);
     console.log(question);
     const answer = readlineSync.question('Your answer: ');
@@ -48,3 +34,4 @@ export const engine = (gameFunc, description, times) => {
   }
   congratulate(userName);
 };
+export default engine;

@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import { myRandom } from '../gameFunc/utils';
-import engine from '../gameFunc/engineFile';
+import myRandom from '../utils';
+import engine from '../engineFile';
 
 const expression = () => {
   const [arg1, arg2] = [myRandom(1, 20), myRandom(1, 20)];
@@ -25,8 +25,8 @@ const expression = () => {
   const question = `${arg1} ${operation} ${arg2}`;
   return cons(question, corrAnswer);
 };
+const description = 'What is the result of the expression?';
 const brainCalc = () => {
-  const description = 'What is the result of the expression?';
   engine(expression, description);
 };
 

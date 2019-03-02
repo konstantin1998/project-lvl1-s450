@@ -3,6 +3,9 @@ import myRandom from '../utils';
 import engine from '../engine';
 
 const isPrime = (arg) => {
+  if (arg < 2) {
+    return false;
+  }
   if (arg === 2) {
     return true;
   }
